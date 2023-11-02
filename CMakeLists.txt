@@ -114,6 +114,10 @@ if (MSVC AND NOT ${S2_SOURCE} STREQUAL "BUNDLED")
   target_compile_options(s2 INTERFACE /J)
 endif()
 
+  find_package(OpenSSL)
+  target_include_directories(s2 INTERFACE ${OPENSSL_INCLUDE_DIR})
+
+
 # Abseil (bundled build not supported)
 
 find_package(absl REQUIRED)
